@@ -7,7 +7,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import HistoryToggleOffIcon from "@mui/icons-material/HistoryToggleOff";
 
-export default function History() {
+export default function History({history}) {
   const anchor = "right"
   const [state, setState] = React.useState({
     top: false,
@@ -26,6 +26,7 @@ export default function History() {
 
     setState({ ...state, [anchor]: open });
   };
+  console.log(history)
 
   const list = (anchor) => (
     <Box
@@ -35,15 +36,11 @@ export default function History() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List dense={true}>
-        <ListItem key={1}>
-          <ListItemText primary="history 1" />
-        </ListItem>
-        <ListItem key={2}>
-          <ListItemText primary="history 2" />
-        </ListItem>
-        <ListItem key={2}>
-          <ListItemText primary="history 3" />
-        </ListItem>
+        {history.map((message) => {return (
+          <ListItem key={crypto.randomUUID()}>
+            <ListItemText primary={message} />
+          </ListItem>
+        );}).reverse()}
       </List>
       <Divider />
     </Box>

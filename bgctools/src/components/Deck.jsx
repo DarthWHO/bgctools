@@ -4,12 +4,13 @@ import Grid from "@mui/material/Grid2";
 import DeckCard from "./DeckCard";
 import DeckSummary from "./DeckSummary";
 import DeckDraw from "./DeckDraw";
-import { useState } from "react";
+// import { useState } from "react";
 
 export default function Deck({ deck, dealCard }) {
-  const [deckBackground, setDeckBackground] = useState(
-    "rgb(255, 255, 255, 0.2)"
-  );
+  const deckBackground = "rgb(255, 255, 255, 0.2)";
+  // const [deckBackground, setDeckBackground] = useState(
+  //   "rgb(255, 255, 255, 0.2)"
+  // );
 
   // if (deck === "White") {
   //   setDeckBackground("rgb(255, 255, 255, 0.2)");
@@ -42,7 +43,9 @@ export default function Deck({ deck, dealCard }) {
           columnSpacing={2}
           p={1}
           sx={{ backgroundColor: "rgb(230, 240, 250)" }}
-        ></Grid>
+        >
+          <DeckCard value={1} isCrit={false} colour="white" />
+        </Grid>
       </Grid>
       <CardActions></CardActions>
     </Card>

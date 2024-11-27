@@ -2,9 +2,10 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 
-const CARDSIZE = 65;
+const CARDHEIGHT = 70;
+const CIRCLESIZE = 68;
 
-export default function DeckCard({ value, isCrit, color }) {
+export default function DeckCard({ value, isCrit, colour }) {
   const displayValue = isCrit ? "{ " + value + " }" : value
   return (
     <Grid size={6}>
@@ -16,9 +17,9 @@ export default function DeckCard({ value, isCrit, color }) {
         sx={{
           flexGrow: 1,
           p: 2,
-          height: 70,
+          height: CARDHEIGHT,
           borderRadius: 2,
-          bgcolor: color,  
+          bgcolor: colour,
         }}
       >
         <Box
@@ -27,8 +28,8 @@ export default function DeckCard({ value, isCrit, color }) {
           alignItems="center"
           justifyContent="center"
           sx={{
-            height: CARDSIZE,
-            width: CARDSIZE,
+            height: CIRCLESIZE,
+            width: CIRCLESIZE,
             borderRadius: 100,
             bgcolor: "white",
             border: "1px solid",

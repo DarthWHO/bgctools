@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid2";
 import History from "./History";
 import Instructions from "./Instructions";
 
-export default function Title() {
+export default function Title({history}) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={3} justifyContent="center">
@@ -22,7 +22,7 @@ export default function Title() {
         </Grid>
         <Grid size={1}>
           <Box display="flex" alignItems="right" justifyContent="right">
-            <History />
+            <History history={history} />
           </Box>
         </Grid>
       </Grid>
