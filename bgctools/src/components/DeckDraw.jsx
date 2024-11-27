@@ -8,7 +8,7 @@ import { Stack } from "@mui/material";
 import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 
-export default function DeckDraw({dealCard}) {
+export default function DeckDraw({dealCard, deck, isOathsworn}) {
   const [value, setValue] = useState(0);
   const isRollDisabled = value ? false: true
   const handleRoll = (direction) => {
@@ -42,7 +42,7 @@ export default function DeckDraw({dealCard}) {
               variant="contained"
               disabled={isRollDisabled}
               sx={{ width: "100%", m: 0 }}
-              onClick={() => dealCard("owhite")}
+              onClick={() => dealCard(deck, isOathsworn)}
             >
               Draw
             </Button>

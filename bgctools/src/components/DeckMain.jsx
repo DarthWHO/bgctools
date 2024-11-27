@@ -23,16 +23,21 @@ function MightDeckMain({ DECKS }) {
     setIsOathsworn(!isOathsworn);
   };
 
-  const getRandomCard = (deckID) => {
+  const getRandomCard = (deckColour, isOathsworn) => {
     // const newDeckHistory = deckHistory.push({ turn: turnCount + 1, deck: decks });
     // setDeckHistory(newDeckHistory);
     setTurnCount(turnCount + 1);
-    const currentDeck = decks.find((deck) => deck.deckID === deckID).deck;
+    const currentDeck = decks.find(
+      (deck) =>
+        deck.deckColour === deckColour && deck.isOathsworn === isOathsworn
+    ).deck;
     const currentColor = decks.find(
-      (deck) => deck.deckID === deckID
+      (deck) =>
+        deck.deckColour === deckColour && deck.isOathsworn === isOathsworn
     ).deckColour;
-    const isOathsworn = decks.find(
-      (deck) => deck.deckID === deckID
+    const isOath = decks.find(
+      (deck) =>
+        deck.deckColour === deckColour && deck.isOathsworn === isOathsworn
     ).isOathsworn;
     const notDealtCards = currentDeck.filter((card) => !card.isDealt);
     if (notDealtCards.length === 0) {
@@ -43,15 +48,14 @@ function MightDeckMain({ DECKS }) {
     setDecks(
       [...decks],
       (returnedCard.isDealt = true),
-      (returnedCard.isActive = true)
+      (returnedCard.isActive = true),
+      (returnedCard.drawOrder = turnCount + 1)
     );
     const newMessages = [
       ...historyMessages,
-      `${turnCount + 1}: ${
-        isOathsworn ? "Oathsworn" : "Enemy"
-      } ${currentColor} -${returnedCard.isCrit ? " critical" : ""} ${
-        returnedCard.description
-      } for ${returnedCard.value}`,
+      `${turnCount + 1}: ${isOath ? "Oathsworn" : "Enemy"} ${currentColor} -${
+        returnedCard.isCrit ? " critical" : ""
+      } ${returnedCard.description} for ${returnedCard.value}`,
     ];
     setHistoryMessages(newMessages);
     return returnedCard;
