@@ -1,4 +1,4 @@
-import MightDeckMain from "./MightDeckMain";
+import DeckMain from "./DeckMain";
 
 const DECKDETAILS = [
   {
@@ -1500,5 +1500,5 @@ const DECKDETAILS = [
 ];
 
 export default function DeckDetails() {
-  return <MightDeckMain DECKS={DECKDETAILS} />;
+  return <DeckMain DECKS={DECKDETAILS} />;
 }
