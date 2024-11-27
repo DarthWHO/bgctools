@@ -6,24 +6,24 @@ import DeckSummary from "./DeckSummary";
 import DeckDraw from "./DeckDraw";
 // import { useState } from "react";
 
-export default function Deck({ deck, dealCard }) {
+export default function Deck({ deck, dealCard, getActiveCards, isOathsworn }) {
   const deckBackground = "rgb(255, 255, 255, 0.2)";
-  // const [deckBackground, setDeckBackground] = useState(
-  //   "rgb(255, 255, 255, 0.2)"
-  // );
 
-  // if (deck === "White") {
-  //   setDeckBackground("rgb(255, 255, 255, 0.2)");
-  // }
-  // if (deck === "Yellow") {
-  //   setDeckBackground("rgb(255, 255, 150, 0.1)");
-  // }
-  // if (deck === "Red") {
-  //   setDeckBackground("rgb(255, 100, 100, 0.1)");
-  // }
-  // if (deck === "Black") {
-  //   setDeckBackground("rgb(50, 50, 50, 0.1)");
-  // }
+  const DisplayCards = () => {
+    const activeCards = getActiveCards(deck, isOathsworn);
+    return (
+      <>
+        {activeCards.map((card) => (
+          <DeckCard
+            key={card.cardID}
+            value={card.value}
+            isCrit={card.isCrit}
+            colour={deck.toLowerCase()}
+          />
+        ))}
+      </>
+    );
+  };
 
   return (
     <Card sx={{ minHeight: 600 }}>
@@ -44,7 +44,7 @@ export default function Deck({ deck, dealCard }) {
           p={1}
           sx={{ backgroundColor: "rgb(230, 240, 250)" }}
         >
-          <DeckCard value={1} isCrit={false} colour="white" />
+          <DisplayCards />
         </Grid>
       </Grid>
       <CardActions></CardActions>

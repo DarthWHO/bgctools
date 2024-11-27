@@ -8,25 +8,32 @@ import { useState } from "react";
 function MightDeckMain({ DECKS }) {
   const deckInitialize = DECKS;
   // const deckHistoryInitialize = [{"turn": 0, "deck": deckInitialize}];
-  const [turnCount, setTurnCount] = useState(0);
   // const [deckHistory, setDeckHistory] = useState(deckHistoryInitialize);
+  const [turnCount, setTurnCount] = useState(0);
   const [decks, setDecks] = useState(deckInitialize);
   const [historyMessages, setHistoryMessages] = useState([]);
+  const [isOathsworn, setIsOathsworn] = useState(true);
 
   // const undoLast = () => {
   //   const previousDeck = deckHistory[turnCount - 1];
   //   setDecks(...previousDeck);
   // };
 
+  const handleSwitchDeck = () => {
+    setIsOathsworn(!isOathsworn);
+  };
+
   const getRandomCard = (deckID) => {
     // const newDeckHistory = deckHistory.push({ turn: turnCount + 1, deck: decks });
-    setTurnCount(turnCount + 1);
     // setDeckHistory(newDeckHistory);
+    setTurnCount(turnCount + 1);
     const currentDeck = decks.find((deck) => deck.deckID === deckID).deck;
     const currentColor = decks.find(
       (deck) => deck.deckID === deckID
     ).deckColour;
-    const currentType = decks.find((deck) => deck.deckID === deckID).deckType;
+    const isOathsworn = decks.find(
+      (deck) => deck.deckID === deckID
+    ).isOathsworn;
     const notDealtCards = currentDeck.filter((card) => !card.isDealt);
     if (notDealtCards.length === 0) {
       return null;
@@ -38,21 +45,26 @@ function MightDeckMain({ DECKS }) {
       (returnedCard.isDealt = true),
       (returnedCard.isActive = true)
     );
-    const newMessages = [...historyMessages,`${turnCount + 1}: ${currentType} ${currentColor} -${
-      returnedCard.isCrit ? " critical" : ""
-    } ${returnedCard.description} for ${returnedCard.value}`];
-
+    const newMessages = [
+      ...historyMessages,
+      `${turnCount + 1}: ${
+        isOathsworn ? "Oathsworn" : "Enemy"
+      } ${currentColor} -${returnedCard.isCrit ? " critical" : ""} ${
+        returnedCard.description
+      } for ${returnedCard.value}`,
+    ];
     setHistoryMessages(newMessages);
-
-    console.log(
-      `${turnCount + 1}: ${currentType} ${currentColor} -${
-        returnedCard.isCrit ? " critical" : ""
-      } ${returnedCard.description} for ${returnedCard.value}`
-    );
-
-    // console.log(decks)
-    // console.log(deckHistory)
     return returnedCard;
+  };
+
+  const getActiveCards = (deckColour, isOathsworn) => {
+    return decks
+      .filter(
+        (deck) =>
+          deck.deckColour === deckColour && deck.isOathsworn === isOathsworn
+      )
+      .flatMap((deck) => deck.deck)
+      .filter((card) => card.isActive);
   };
 
   return (
@@ -62,19 +74,39 @@ function MightDeckMain({ DECKS }) {
           <Title history={historyMessages} />
         </Grid>
         <Grid size={{ xs: 12, md: 12 }}>
-          <GameSummary />
+          <GameSummary handleSwitchDeck={handleSwitchDeck} />
         </Grid>
         <Grid size={{ xs: 12, md: 6, lg: 3 }}>
-          <Deck deck="White" dealCard={getRandomCard} />
+          <Deck
+            deck="White"
+            dealCard={getRandomCard}
+            getActiveCards={getActiveCards}
+            isOathsworn={isOathsworn}
+          />
         </Grid>
         <Grid size={{ xs: 12, md: 6, lg: 3 }}>
-          <Deck deck="Yellow" dealCard={getRandomCard} />
+          <Deck
+            deck="Yellow"
+            dealCard={getRandomCard}
+            getActiveCards={getActiveCards}
+            isOathsworn={isOathsworn}
+          />
         </Grid>
         <Grid size={{ xs: 12, md: 6, lg: 3 }}>
-          <Deck deck="Red" dealCard={getRandomCard} />
+          <Deck
+            deck="Red"
+            dealCard={getRandomCard}
+            getActiveCards={getActiveCards}
+            isOathsworn={isOathsworn}
+          />
         </Grid>
         <Grid size={{ xs: 12, md: 6, lg: 3 }}>
-          <Deck deck="Black" dealCard={getRandomCard} />
+          <Deck
+            deck="Black"
+            dealCard={getRandomCard}
+            getActiveCards={getActiveCards}
+            isOathsworn={isOathsworn}
+          />
         </Grid>
       </Grid>
     </Box>

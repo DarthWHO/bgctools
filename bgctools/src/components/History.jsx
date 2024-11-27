@@ -26,7 +26,6 @@ export default function History({history}) {
 
     setState({ ...state, [anchor]: open });
   };
-  console.log(history)
 
   const list = (anchor) => (
     <Box

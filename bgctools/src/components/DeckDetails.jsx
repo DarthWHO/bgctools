@@ -4,7 +4,7 @@ const DECKDETAILS = [
   {
     deckID: "owhite",
     deckColour: "White",
-    deckType: "Oathsworn",
+    isOathsworn: true,
     deck: [
       {
         cardID: "owhite0",
@@ -191,7 +191,7 @@ const DECKDETAILS = [
   {
     deckID: "oyellow",
     deckColour: "Yellow",
-    deckType: "Oathsworn",
+    isOathsworn: true,
     deck: [
       {
         cardID: "oyellow0",
@@ -378,7 +378,7 @@ const DECKDETAILS = [
   {
     deckID: "ored",
     deckColour: "Red",
-    deckType: "Oathsworn",
+    isOathsworn: true,
     deck: [
       {
         cardID: "ored0",
@@ -565,7 +565,7 @@ const DECKDETAILS = [
   {
     deckID: "oblack",
     deckColour: "Black",
-    deckType: "Oathsworn",
+    isOathsworn: true,
     deck: [
       {
         cardID: "oblack0",
@@ -752,7 +752,7 @@ const DECKDETAILS = [
   {
     deckID: "ewhite",
     deckColour: "White",
-    deckType: "Enemy",
+    isOathsworn: false,
     deck: [
       {
         cardID: "ewhite0",
@@ -939,7 +939,7 @@ const DECKDETAILS = [
   {
     deckID: "eyellow",
     deckColour: "Yellow",
-    deckType: "Enemy",
+    isOathsworn: false,
     deck: [
       {
         cardID: "eyellow0",
@@ -1126,7 +1126,7 @@ const DECKDETAILS = [
   {
     deckID: "ered",
     deckColour: "Red",
-    deckType: "Enemy",
+    isOathsworn: false,
     deck: [
       {
         cardID: "ered0",
@@ -1313,7 +1313,7 @@ const DECKDETAILS = [
   {
     deckID: "eblack",
     deckColour: "Black",
-    deckType: "Enemy",
+    isOathsworn: false,
     deck: [
       {
         cardID: "eblack0",
