@@ -14,7 +14,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite1",
@@ -24,7 +24,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite2",
@@ -34,7 +34,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite3",
@@ -44,7 +44,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite4",
@@ -54,7 +54,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite5",
@@ -64,7 +64,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite6",
@@ -74,7 +74,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite7",
@@ -84,7 +84,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite8",
@@ -94,7 +94,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite9",
@@ -104,7 +104,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite10",
@@ -114,7 +114,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite11",
@@ -124,7 +124,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite12",
@@ -134,7 +134,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite13",
@@ -144,7 +144,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite14",
@@ -154,7 +154,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite15",
@@ -164,7 +164,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite16",
@@ -174,7 +174,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "owhite17",
@@ -184,7 +184,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
     ],
   },
@@ -201,7 +201,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow1",
@@ -211,7 +211,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow2",
@@ -221,7 +221,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow3",
@@ -231,7 +231,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow4",
@@ -241,7 +241,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow5",
@@ -251,7 +251,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow6",
@@ -261,7 +261,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow7",
@@ -271,7 +271,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow8",
@@ -281,7 +281,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow9",
@@ -291,7 +291,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow10",
@@ -301,7 +301,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow11",
@@ -311,7 +311,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow12",
@@ -321,7 +321,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow13",
@@ -331,7 +331,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow14",
@@ -341,7 +341,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow15",
@@ -351,7 +351,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow16",
@@ -361,7 +361,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oyellow17",
@@ -371,7 +371,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
     ],
   },
@@ -388,7 +388,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored1",
@@ -398,7 +398,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored2",
@@ -408,7 +408,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored3",
@@ -418,7 +418,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored4",
@@ -428,7 +428,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored5",
@@ -438,7 +438,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored6",
@@ -448,7 +448,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored7",
@@ -458,7 +458,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored8",
@@ -468,7 +468,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored9",
@@ -478,7 +478,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored10",
@@ -488,7 +488,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored11",
@@ -498,7 +498,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored12",
@@ -508,7 +508,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored13",
@@ -518,7 +518,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored14",
@@ -528,7 +528,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored15",
@@ -538,7 +538,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored16",
@@ -548,7 +548,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ored17",
@@ -558,7 +558,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
     ],
   },
@@ -575,7 +575,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack1",
@@ -585,7 +585,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack2",
@@ -595,7 +595,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack3",
@@ -605,7 +605,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack4",
@@ -615,7 +615,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack5",
@@ -625,7 +625,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack6",
@@ -635,7 +635,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack7",
@@ -645,7 +645,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack8",
@@ -655,7 +655,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack9",
@@ -665,7 +665,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack10",
@@ -675,7 +675,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack11",
@@ -685,7 +685,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack12",
@@ -695,7 +695,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack13",
@@ -705,7 +705,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack14",
@@ -715,7 +715,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack15",
@@ -725,7 +725,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack16",
@@ -735,7 +735,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "oblack17",
@@ -745,7 +745,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
     ],
   },
@@ -762,7 +762,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite1",
@@ -772,7 +772,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite2",
@@ -782,7 +782,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite3",
@@ -792,7 +792,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite4",
@@ -802,7 +802,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite5",
@@ -812,7 +812,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite6",
@@ -822,7 +822,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite7",
@@ -832,7 +832,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite8",
@@ -842,7 +842,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite9",
@@ -852,7 +852,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite10",
@@ -862,7 +862,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite11",
@@ -872,7 +872,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite12",
@@ -882,7 +882,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite13",
@@ -892,7 +892,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite14",
@@ -902,7 +902,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite15",
@@ -912,7 +912,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite16",
@@ -922,7 +922,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ewhite17",
@@ -932,7 +932,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
     ],
   },
@@ -949,7 +949,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow1",
@@ -959,7 +959,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow2",
@@ -969,7 +969,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow3",
@@ -979,7 +979,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow4",
@@ -989,7 +989,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow5",
@@ -999,7 +999,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow6",
@@ -1009,7 +1009,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow7",
@@ -1019,7 +1019,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow8",
@@ -1029,7 +1029,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow9",
@@ -1039,7 +1039,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow10",
@@ -1049,7 +1049,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow11",
@@ -1059,7 +1059,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow12",
@@ -1069,7 +1069,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow13",
@@ -1079,7 +1079,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow14",
@@ -1089,7 +1089,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow15",
@@ -1099,7 +1099,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow16",
@@ -1109,7 +1109,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eyellow17",
@@ -1119,7 +1119,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
     ],
   },
@@ -1136,7 +1136,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered1",
@@ -1146,7 +1146,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered2",
@@ -1156,7 +1156,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered3",
@@ -1166,7 +1166,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered4",
@@ -1176,7 +1176,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered5",
@@ -1186,7 +1186,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered6",
@@ -1196,7 +1196,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered7",
@@ -1206,7 +1206,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered8",
@@ -1216,7 +1216,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered9",
@@ -1226,7 +1226,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered10",
@@ -1236,7 +1236,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered11",
@@ -1246,7 +1246,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered12",
@@ -1256,7 +1256,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered13",
@@ -1266,7 +1266,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered14",
@@ -1276,7 +1276,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered15",
@@ -1286,7 +1286,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered16",
@@ -1296,7 +1296,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "ered17",
@@ -1306,7 +1306,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
     ],
   },
@@ -1323,7 +1323,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack1",
@@ -1333,7 +1333,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack2",
@@ -1343,7 +1343,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack3",
@@ -1353,7 +1353,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack4",
@@ -1363,7 +1363,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack5",
@@ -1373,7 +1373,7 @@ const DECKDETAILS = [
         isMiss: true,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack6",
@@ -1383,7 +1383,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack7",
@@ -1393,7 +1393,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack8",
@@ -1403,7 +1403,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack9",
@@ -1413,7 +1413,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack10",
@@ -1423,7 +1423,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack11",
@@ -1433,7 +1433,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack12",
@@ -1443,7 +1443,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack13",
@@ -1453,7 +1453,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack14",
@@ -1463,7 +1463,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack15",
@@ -1473,7 +1473,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack16",
@@ -1483,7 +1483,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
       {
         cardID: "eblack17",
@@ -1493,7 +1493,7 @@ const DECKDETAILS = [
         isMiss: false,
         isDealt: false,
         isActive: false,
-        isSelected: false,
+        isSelected: false, drawOrder: 0
       },
     ],
   },
