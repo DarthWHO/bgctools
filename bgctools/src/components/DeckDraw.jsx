@@ -4,24 +4,29 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import Button from "@mui/material/Button";
-import { Stack } from "@mui/material";
-import { useState } from "react";
+import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 
-export default function DeckDraw({dealCard, deck, isOathsworn}) {
-  const [value, setValue] = useState(0);
-  const isRollDisabled = value ? false: true
+export default function DeckDraw({
+  deck,
+  handleShuffle,
+  cardsToDeal,
+  updateCardsToDeal,
+  handleDeal,
+}) {
+  console.log(cardsToDeal[deck]);
+  const isRollDisabled = cardsToDeal[deck] ? false : true;
   const handleRoll = (direction) => {
     if (
-      (value === 0 && direction === "down") ||
-      (value === 18 && direction === "up")
+      (cardsToDeal[deck] === 0 && direction === "down") ||
+      (cardsToDeal[deck] === 18 && direction === "up")
     ) {
       return;
     }
     if (direction === "up") {
-      setValue(value + 1);
+      updateCardsToDeal(deck, cardsToDeal[deck] + 1);
     } else {
-      setValue(value - 1);
+      updateCardsToDeal(deck, cardsToDeal[deck] - 1);
     }
   };
 
@@ -42,7 +47,7 @@ export default function DeckDraw({dealCard, deck, isOathsworn}) {
               variant="contained"
               disabled={isRollDisabled}
               sx={{ width: "100%", m: 0 }}
-              onClick={() => dealCard(deck, isOathsworn)}
+              onClick={() => handleDeal(deck)}
             >
               Draw
             </Button>
@@ -52,7 +57,11 @@ export default function DeckDraw({dealCard, deck, isOathsworn}) {
             <Button variant="outlined" disabled sx={{ width: "100%", m: 0 }}>
               Crits
             </Button>
-            <Button variant="outlined" sx={{ width: "100%", m: 0 }}>
+            <Button
+              onClick={() => handleShuffle(deck)}
+              variant="outlined"
+              sx={{ width: "100%", m: 0 }}
+            >
               Shuffle
             </Button>
           </Stack>
@@ -75,7 +84,7 @@ export default function DeckDraw({dealCard, deck, isOathsworn}) {
               <ArrowDropUpIcon sx={{ fontSize: 50 }} />
             </IconButton>
             <Typography variant="h4" component="h4" sx={{ m: 0, p: 0 }}>
-              {value}
+              {cardsToDeal[deck]}
             </Typography>
             <IconButton
               aria-label="down"

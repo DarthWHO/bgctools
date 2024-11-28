@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid2";
 import History from "./History";
 import Instructions from "./Instructions";
 
-export default function Title({history}) {
+export default function Title({history, isOathsworn}) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={3} justifyContent="center">
@@ -16,7 +16,7 @@ export default function Title({history}) {
         <Grid size={10}>
           <Box display="flex" alignItems="center" justifyContent="center">
             <Typography variant="h5" component="h5">
-              Oathsworn Might Deck
+              {isOathsworn ? "Oathsworn" : "Enemy"} Might Deck
             </Typography>
           </Box>
         </Grid>

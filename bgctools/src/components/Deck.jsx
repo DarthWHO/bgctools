@@ -6,11 +6,21 @@ import DeckSummary from "./DeckSummary";
 import DeckDraw from "./DeckDraw";
 // import { useState } from "react";
 
-export default function Deck({ deck, dealCard, getActiveCards, isOathsworn }) {
+export default function Deck({
+  deck,
+  getActiveCards,
+  isOathsworn,
+  handleShuffle,
+  cardsToDeal,
+  updateCardsToDeal,
+  handleDeal,
+}) {
   const deckBackground = "rgb(255, 255, 255, 0.2)";
 
   const DisplayCards = () => {
-    const activeCards = getActiveCards(deck, isOathsworn).sort((a, b) => a.drawOrder - b.drawOrder);
+    const activeCards = getActiveCards(deck, isOathsworn).sort(
+      (a, b) => a.drawOrder - b.drawOrder
+    );
     return (
       <>
         {activeCards.map((card) => (
@@ -33,7 +43,13 @@ export default function Deck({ deck, dealCard, getActiveCards, isOathsworn }) {
             <DeckSummary deck={deck} />
           </Grid>
           <Grid size={{ xs: 6, md: 6 }}>
-            <DeckDraw dealCard={dealCard} deck={deck} isOathsworn={isOathsworn} />
+            <DeckDraw
+              deck={deck}
+              handleShuffle={handleShuffle}
+              cardsToDeal={cardsToDeal}
+              updateCardsToDeal={updateCardsToDeal}
+              handleDeal={handleDeal}
+            />
           </Grid>
         </Grid>
 
