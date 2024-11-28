@@ -14,7 +14,6 @@ export default function DeckDraw({
   updateCardsToDeal,
   handleDeal,
 }) {
-  console.log(cardsToDeal[deck]);
   const isRollDisabled = cardsToDeal[deck] ? false : true;
   const handleRoll = (direction) => {
     if (

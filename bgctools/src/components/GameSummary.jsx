@@ -6,8 +6,9 @@ import Grid from "@mui/material/Grid2";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
-export default function GameSummary({ handleSwitchDeck, handleEndDraw }) {
-  const isRollDisabled = true;
+export default function GameSummary({ handleSwitchDeck, handleEndDraw, handleDeal, cardsToDeal }) {
+  const cardTotal = cardsToDeal["White"] + cardsToDeal["Yellow"] +cardsToDeal["Red"] +cardsToDeal["Black"] 
+  const isRollDisabled = cardTotal ? false : true;
 
   return (
     <Card sx={{ minHeight: 150 }}>
@@ -29,7 +30,7 @@ export default function GameSummary({ handleSwitchDeck, handleEndDraw }) {
                   variant="contained"
                   disabled={isRollDisabled}
                   sx={{ width: "100%", m: 0 }}
-                  // onClick={handleDeal}
+                  onClick={() => handleDeal("all")}
                 >
                   Draw All
                 </Button>

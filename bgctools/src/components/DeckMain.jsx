@@ -8,7 +8,6 @@ import { useState } from "react";
 function MightDeckMain({ DECKS }) {
   const deckInitialize = DECKS;
   const cardsToDealIntialize = { White: 0, Yellow: 0, Red: 0, Black: 0 };
-  console.log(cardsToDealIntialize["White"]);
   const [turnCount, setTurnCount] = useState(0);
   const [decks, setDecks] = useState(deckInitialize);
   const [historyMessages, setHistoryMessages] = useState([]);
@@ -16,12 +15,20 @@ function MightDeckMain({ DECKS }) {
   const [cardsToDeal, setCardsToDeal] = useState(cardsToDealIntialize);
 
   const handleDeal = (deck) => {
-    for (let index = 0; index < cardsToDeal[deck]; index++) {
-      getRandomCard(deck, isOathsworn);
-      
+    let colours = [deck];
 
+    if (deck === "all") {
+      colours = ["White", "Yellow", "Red", "Black"];
     }
-    updateCardsToDeal(deck, 0);
+
+    console.log(colours);
+
+    colours.map((colour) => {
+      for (let index = 0; index < cardsToDeal[colour]; index++) {
+        getRandomCard(colour, isOathsworn);
+      }
+      updateCardsToDeal(colour, 0);
+    });
   };
 
   const updateCardsToDeal = (deck, value) => {
@@ -166,6 +173,8 @@ function MightDeckMain({ DECKS }) {
           <GameSummary
             handleSwitchDeck={handleSwitchDeck}
             handleEndDraw={handleEndDraw}
+            handleDeal={handleDeal}
+            cardsToDeal={cardsToDeal}
           />
         </Grid>
         <Grid size={{ xs: 12, md: 6, lg: 3 }}>
