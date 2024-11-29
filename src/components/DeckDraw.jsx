@@ -45,21 +45,21 @@ export default function DeckDraw({
             <Button
               variant="contained"
               disabled={isRollDisabled}
-              sx={{ width: "100%", m: 0 }}
+              sx={{ width: "120px", m: 0 }}
               onClick={() => handleDeal(deck)}
             >
               Draw
             </Button>
-            <Button variant="outlined" disabled sx={{ width: "100%", m: 0 }}>
+            <Button variant="outlined" disabled sx={{ width: "120px", m: 0 }}>
               Re-Draw
             </Button>
-            <Button variant="outlined" disabled sx={{ width: "100%", m: 0 }}>
+            <Button variant="outlined" disabled sx={{ width: "120px", m: 0 }}>
               Crits
             </Button>
             <Button
               onClick={() => handleShuffle(deck)}
               variant="outlined"
-              sx={{ width: "100%", m: 0 }}
+              sx={{ width: "120px", m: 0 }}
             >
               Shuffle
             </Button>

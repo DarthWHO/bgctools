@@ -1,4 +1,3 @@
-import * as React from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -9,6 +8,7 @@ import Paper from "@mui/material/Paper";
 import Draggable from "react-draggable";
 import HelpIcon from "@mui/icons-material/Help";
 import InstructionsList from "./InstructionsList";
+import { useState } from "react";
 
 function PaperComponent(props) {
   return (
@@ -22,7 +22,7 @@ function PaperComponent(props) {
 }
 
 export default function Instructions() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -33,13 +33,12 @@ export default function Instructions() {
   };
 
   return (
-    <React.Fragment>
+    <>
       <HelpIcon onClick={handleClickOpen} cursor="pointer" />
       <Dialog
         open={open}
         onClose={handleClose}
         PaperComponent={PaperComponent}
-        aria-labelledby="draggable-dialog-title"
       >
         <DialogTitle style={{ cursor: "move" }} id="draggable-dialog-title">
           Instructions
@@ -53,6 +52,6 @@ export default function Instructions() {
           <Button onClick={handleClose}>Close</Button>
         </DialogActions>
       </Dialog>
-    </React.Fragment>
+    </>
   );
 }
