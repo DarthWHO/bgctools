@@ -8,6 +8,7 @@ import DeckDraw from "./DeckDraw";
 
 export default function Deck({
   deck,
+  deckCards,
   getActiveCards,
   isOathsworn,
   handleShuffle,
@@ -40,7 +41,7 @@ export default function Deck({
       <Grid sx={{ backgroundColor: deckBackground }}>
         <Grid container spacing={1}>
           <Grid size={{ xs: 6, md: 6 }}>
-            <DeckSummary deck={deck} />
+            <DeckSummary deck={deck} deckCards={deckCards} />
           </Grid>
           <Grid size={{ xs: 6, md: 6 }}>
             <DeckDraw

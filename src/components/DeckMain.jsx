@@ -16,12 +16,9 @@ function MightDeckMain({ DECKS }) {
 
   const handleDeal = (deck) => {
     let colours = [deck];
-
     if (deck === "all") {
       colours = ["White", "Yellow", "Red", "Black"];
     }
-
-    console.log(colours);
 
     colours.map((colour) => {
       for (let index = 0; index < cardsToDeal[colour]; index++) {
@@ -171,6 +168,7 @@ function MightDeckMain({ DECKS }) {
         </Grid>
         <Grid size={{ xs: 12, md: 12 }}>
           <GameSummary
+            decks={decks}
             handleSwitchDeck={handleSwitchDeck}
             handleEndDraw={handleEndDraw}
             handleDeal={handleDeal}
@@ -180,6 +178,10 @@ function MightDeckMain({ DECKS }) {
         <Grid size={{ xs: 12, md: 6, lg: 3 }}>
           <Deck
             deck="White"
+            deckCards={[decks.find(
+              (deck) =>
+                deck.deckColour === "White" && deck.isOathsworn === isOathsworn
+            )]}
             getActiveCards={getActiveCards}
             isOathsworn={isOathsworn}
             handleShuffle={handleShuffle}
@@ -191,6 +193,10 @@ function MightDeckMain({ DECKS }) {
         <Grid size={{ xs: 12, md: 6, lg: 3 }}>
           <Deck
             deck="Yellow"
+            deckCards={[decks.find(
+              (deck) =>
+                deck.deckColour === "Yellow" && deck.isOathsworn === isOathsworn
+            )]}
             getActiveCards={getActiveCards}
             isOathsworn={isOathsworn}
             handleShuffle={handleShuffle}
@@ -202,6 +208,10 @@ function MightDeckMain({ DECKS }) {
         <Grid size={{ xs: 12, md: 6, lg: 3 }}>
           <Deck
             deck="Red"
+            deckCards={[decks.find(
+              (deck) =>
+                deck.deckColour === "Red" && deck.isOathsworn === isOathsworn
+            )]}
             getActiveCards={getActiveCards}
             isOathsworn={isOathsworn}
             handleShuffle={handleShuffle}
@@ -213,6 +223,10 @@ function MightDeckMain({ DECKS }) {
         <Grid size={{ xs: 12, md: 6, lg: 3 }}>
           <Deck
             deck="Black"
+            deckCards={[decks.find(
+              (deck) =>
+                deck.deckColour === "Black" && deck.isOathsworn === isOathsworn
+            )]}
             getActiveCards={getActiveCards}
             isOathsworn={isOathsworn}
             handleShuffle={handleShuffle}
