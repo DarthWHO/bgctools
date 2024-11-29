@@ -31,9 +31,11 @@ export default function DeckSummary({ deck, deckCards }) {
     const summary = Object.entries(counts).map(([description, count]) => ({
       description,
       count,
-      percentage: ((count / totalCards) * 100).toFixed(0),
+      percentage: `- ${((count / totalCards) * 100).toFixed(0)}%`,
     }));
-
+    if (summary.length === 0) {
+      return [{ description: "Deck", count: "Empty!", percentage: "" }];
+    }
     return summary;
   };
 
@@ -51,7 +53,7 @@ export default function DeckSummary({ deck, deckCards }) {
                 </Box>
               </Grid>
               <Grid size={1}>{count}</Grid>
-              <Grid size={6}>- {percentage}%</Grid>
+              <Grid size={6}>{percentage}</Grid>
             </Grid>
           </Typography>
         ))}

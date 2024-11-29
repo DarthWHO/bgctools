@@ -13,6 +13,7 @@ export default function GameSummary({
   handleEndDraw,
   handleDeal,
   cardsToDeal,
+  isOathsworn
 }) {
   const cardTotal =
     cardsToDeal["White"] +
@@ -23,7 +24,7 @@ export default function GameSummary({
 
   const calculateTotalValue = (decks) => {
     return decks.reduce((total, deck) => {
-      if (deck.isOathsworn) {
+      if (deck.isOathsworn === isOathsworn) {
         deck.deck.forEach((card) => {
           if (card.isActive) {
             total += card.value;
@@ -36,7 +37,7 @@ export default function GameSummary({
 
   const calculateCrits = (decks) => {
     return decks.reduce((total, deck) => {
-      if (deck.isOathsworn) {
+      if (deck.isOathsworn === isOathsworn) {
         deck.deck.forEach((card) => {
           if (card.isActive && card.isCrit) {
             total += 1;
@@ -49,7 +50,7 @@ export default function GameSummary({
 
   const calculateMisses = (decks) => {
     return decks.reduce((total, deck) => {
-      if (deck.isOathsworn) {
+      if (deck.isOathsworn === isOathsworn) {
         deck.deck.forEach((card) => {
           if (card.isActive && card.isMiss) {
             total += 1;

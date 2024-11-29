@@ -9,16 +9,19 @@ import IconButton from "@mui/material/IconButton";
 
 export default function DeckDraw({
   deck,
+  deckCards,
+  isOathsworn,
   handleShuffle,
   cardsToDeal,
   updateCardsToDeal,
   handleDeal,
 }) {
   const isRollDisabled = cardsToDeal[deck] ? false : true;
+
   const handleRoll = (direction) => {
     if (
       (cardsToDeal[deck] === 0 && direction === "down") ||
-      (cardsToDeal[deck] === 18 && direction === "up")
+      (cardsToDeal[deck] === 18 - calculateAvailable() && direction === "up")
     ) {
       return;
     }
@@ -27,6 +30,57 @@ export default function DeckDraw({
     } else {
       updateCardsToDeal(deck, cardsToDeal[deck] - 1);
     }
+  };
+
+  const calculateCrits = () => {
+    const totalCrits = deckCards.reduce((total, currentDeck) => {
+      if (
+        currentDeck.isOathsworn === isOathsworn &&
+        currentDeck.deckColour === deck
+      ) {
+        currentDeck.deck.forEach((card) => {
+          if (card.isActive && card.isCrit) {
+            total += 1;
+          }
+        });
+      }
+
+      return total;
+    }, 0);
+
+    return totalCrits > 0;
+  };
+
+  const calculateIsSelected = () => {
+    const totalCrits = deckCards.reduce((total, currentDeck) => {
+      if (
+        currentDeck.isOathsworn === isOathsworn &&
+        currentDeck.deckColour === deck
+      ) {
+        currentDeck.deck.forEach((card) => {
+          if (card.isActive && card.isSelected) {
+            total += 1;
+          }
+        });
+      }
+
+      return total;
+    }, 0);
+
+    return totalCrits > 0;
+  };
+
+  const calculateAvailable = () => {
+    return deckCards.reduce((total, deck) => {
+      if (deck.isOathsworn === isOathsworn) {
+        deck.deck.forEach((card) => {
+          if (card.isActive) {
+            total += 1;
+          }
+        });
+      }
+      return total;
+    }, 0);
   };
 
   return (
@@ -49,10 +103,19 @@ export default function DeckDraw({
             >
               Draw
             </Button>
-            <Button variant="outlined" disabled sx={{ width: "120px", m: 0 }}>
+            <Button
+              // onClick={handleStuff}
+              variant="outlined"
+              disabled={!calculateIsSelected()}
+              sx={{ width: "120px", m: 0 }}
+            >
               Re-Draw
             </Button>
-            <Button variant="outlined" disabled sx={{ width: "120px", m: 0 }}>
+            <Button
+              variant="outlined"
+              disabled={!calculateCrits()}
+              sx={{ width: "120px", m: 0 }}
+            >
               Crits
             </Button>
             <Button

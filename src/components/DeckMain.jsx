@@ -13,19 +13,68 @@ function MightDeckMain({ DECKS }) {
   const [historyMessages, setHistoryMessages] = useState([]);
   const [isOathsworn, setIsOathsworn] = useState(true);
   const [cardsToDeal, setCardsToDeal] = useState(cardsToDealIntialize);
+  let currentReturnedCard;
+
+  const countUndealtCards = (deckColour) => {
+    const filteredDeck = decks.find(
+      (deck) =>
+        deck.deckColour === deckColour && deck.isOathsworn === isOathsworn
+    );
+    if (!filteredDeck) {
+      return 0;
+    }
+    const filteredCards = filteredDeck.deck.filter(
+      (card) => card.isDealt === false
+    );
+    return filteredCards.length;
+  };
+
+  const handleSelected = (cardID) => {
+    setDecks((prevDecks) =>
+      prevDecks.map((deck) => {
+        return {
+          ...deck,
+          deck: deck.deck.map((card) => {
+            if (card.cardID === cardID) {
+              return { ...card, isSelected: !card.isSelected };
+            }
+            return card;
+          }),
+        };
+      })
+    );
+  };
 
   const handleDeal = (deck) => {
+    let localTurnCount = turnCount;
     let colours = [deck];
     if (deck === "all") {
       colours = ["White", "Yellow", "Red", "Black"];
     }
 
-    colours.map((colour) => {
+    for (const colour of colours) {
+      const dealtCards = new Set();
+      let remainingToBeDealt = countUndealtCards(deck);
       for (let index = 0; index < cardsToDeal[colour]; index++) {
-        getRandomCard(colour, isOathsworn);
+        if (remainingToBeDealt === cardsToDeal[colour]) {
+          handleShuffle(deck);
+          remainingToBeDealt = 18;
+        }
+
+        localTurnCount += 1;
+        updateTurnCount();
+        currentReturnedCard = getRandomCard(colour, isOathsworn, dealtCards);
+        updateStatusMessage(
+          `${localTurnCount}: ${
+            isOathsworn ? "Oathsworn" : "Enemy"
+          } ${colour} -${currentReturnedCard.isCrit ? " critical" : ""} ${
+            currentReturnedCard.description
+          } for ${currentReturnedCard.value}`
+        );
+        remainingToBeDealt -= 1;
       }
       updateCardsToDeal(colour, 0);
-    });
+    }
   };
 
   const updateCardsToDeal = (deck, value) => {
@@ -49,7 +98,6 @@ function MightDeckMain({ DECKS }) {
               card.isActive === true &&
               deckDetail.isOathsworn === isOathsworn
             ) {
-              // console.log(`Setting ${card.cardID} to inactive`);
               return { ...card, isActive: false };
             }
             return card;
@@ -57,10 +105,7 @@ function MightDeckMain({ DECKS }) {
         };
       })
     );
-    setHistoryMessages((prevMessages) => [
-      ...prevMessages,
-      `${isOathsworn ? "Oathsworn" : "Enemy"} draw ended`,
-    ]);
+    updateStatusMessage(`${isOathsworn ? "Oathsworn" : "Enemy"} draw ended`);
   };
 
   const handleShuffle = (deck) => {
@@ -75,7 +120,6 @@ function MightDeckMain({ DECKS }) {
               deckDetail.deckColour === deck &&
               deckDetail.isOathsworn === isOathsworn
             ) {
-              // console.log(`Setting ${card.cardID} to not dealt`);
               return { ...card, isDealt: false };
             }
             return card;
@@ -83,71 +127,63 @@ function MightDeckMain({ DECKS }) {
         };
       })
     );
-    setHistoryMessages((prevMessages) => [
-      ...prevMessages,
-      `${deck} deck has been shuffled`,
-    ]);
+    updateStatusMessage(
+      `${isOathsworn ? "Oathsworn" : "Enemy"} ${deck} deck has been shuffled`
+    );
   };
 
-  const getRandomCard = (deckColour, isOathsworn) => {
-    // Update turn count using functional state update
+  const updateTurnCount = () => {
     setTurnCount((prevTurnCount) => prevTurnCount + 1);
+  };
 
+  const updateStatusMessage = (message) => {
+    setHistoryMessages((prevMessages) => [...prevMessages, message]);
+  };
+
+  const getRandomCard = (deckColour, isOathsworn, dealtCards) => {
     const currentDeck = decks.find(
       (deck) =>
         deck.deckColour === deckColour && deck.isOathsworn === isOathsworn
     ).deck;
 
-    const currentColor = decks.find(
-      (deck) =>
-        deck.deckColour === deckColour && deck.isOathsworn === isOathsworn
-    ).deckColour;
-
-    const isOath = decks.find(
-      (deck) =>
-        deck.deckColour === deckColour && deck.isOathsworn === isOathsworn
-    ).isOathsworn;
-
-    const notDealtCards = currentDeck.filter((card) => !card.isDealt);
-    if (notDealtCards.length === 0) {
-      return null;
-    }
-
-    const randomIndex = Math.floor(Math.random() * notDealtCards.length);
-    const returnedCard = notDealtCards[randomIndex];
-
-    setHistoryMessages((prevMessages) => [
-      ...prevMessages,
-      `${isOath ? "Oathsworn" : "Enemy"} ${currentColor} -${
-        returnedCard.isCrit ? " critical" : ""
-      } ${returnedCard.description} for ${returnedCard.value}`,
-    ]);
-
-    setDecks((prevDecks) =>
-      prevDecks.map((deck) => {
-        if (
-          deck.deckColour === deckColour &&
-          deck.isOathsworn === isOathsworn
-        ) {
-          return {
-            ...deck,
-            deck: deck.deck.map((card) =>
-              card === returnedCard
-                ? {
-                    ...card,
-                    isDealt: true,
-                    isActive: true,
-                    drawOrder: turnCount + 1,
-                  }
-                : card
-            ),
-          };
-        }
-        return deck;
-      })
+    let notDealtCards = currentDeck.filter(
+      (card) => !card.isDealt && !dealtCards.has(card)
     );
 
-    return returnedCard;
+    if (notDealtCards.length === 0) {
+      return;
+      // handleShuffle(deckColour);
+      // handleDeal(deckColour);
+    } else {
+      const randomIndex = Math.floor(Math.random() * notDealtCards.length);
+      const returnedCard = notDealtCards[randomIndex];
+
+      setDecks((prevDecks) =>
+        prevDecks.map((deck) => {
+          if (
+            deck.deckColour === deckColour &&
+            deck.isOathsworn === isOathsworn
+          ) {
+            return {
+              ...deck,
+              deck: deck.deck.map((card) =>
+                card === returnedCard
+                  ? {
+                      ...card,
+                      isDealt: true,
+                      isActive: true,
+                      drawOrder: turnCount + 1,
+                    }
+                  : card
+              ),
+            };
+          }
+          return deck;
+        })
+      );
+      dealtCards.add(returnedCard);
+      return returnedCard;
+    }
   };
 
   const getActiveCards = (deckColour, isOathsworn) => {
@@ -173,11 +209,13 @@ function MightDeckMain({ DECKS }) {
             handleEndDraw={handleEndDraw}
             handleDeal={handleDeal}
             cardsToDeal={cardsToDeal}
+            isOathsworn={isOathsworn}
           />
         </Grid>
         <Grid size={{ xs: 12, md: 6, lg: 3 }}>
           <Deck
             deck="White"
+            decks={decks}
             deckCards={[
               decks.find(
                 (deck) =>
@@ -191,11 +229,13 @@ function MightDeckMain({ DECKS }) {
             cardsToDeal={cardsToDeal}
             updateCardsToDeal={updateCardsToDeal}
             handleDeal={handleDeal}
+            handleSelected={handleSelected}
           />
         </Grid>
         <Grid size={{ xs: 12, md: 6, lg: 3 }}>
           <Deck
             deck="Yellow"
+            decks={decks}
             deckCards={[
               decks.find(
                 (deck) =>
@@ -209,11 +249,13 @@ function MightDeckMain({ DECKS }) {
             cardsToDeal={cardsToDeal}
             updateCardsToDeal={updateCardsToDeal}
             handleDeal={handleDeal}
+            handleSelected={handleSelected}
           />
         </Grid>
         <Grid size={{ xs: 12, md: 6, lg: 3 }}>
           <Deck
             deck="Red"
+            decks={decks}
             deckCards={[
               decks.find(
                 (deck) =>
@@ -226,11 +268,13 @@ function MightDeckMain({ DECKS }) {
             cardsToDeal={cardsToDeal}
             updateCardsToDeal={updateCardsToDeal}
             handleDeal={handleDeal}
+            handleSelected={handleSelected}
           />
         </Grid>
         <Grid size={{ xs: 12, md: 6, lg: 3 }}>
           <Deck
             deck="Black"
+            decks={decks}
             deckCards={[
               decks.find(
                 (deck) =>
@@ -244,6 +288,7 @@ function MightDeckMain({ DECKS }) {
             cardsToDeal={cardsToDeal}
             updateCardsToDeal={updateCardsToDeal}
             handleDeal={handleDeal}
+            handleSelected={handleSelected}
           />
         </Grid>
       </Grid>

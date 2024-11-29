@@ -15,6 +15,7 @@ export default function Deck({
   cardsToDeal,
   updateCardsToDeal,
   handleDeal,
+  handleSelected
 }) {
   const deckBackground = "rgb(255, 255, 255, 0.2)";
 
@@ -27,9 +28,13 @@ export default function Deck({
         {activeCards.map((card) => (
           <DeckCard
             key={card.cardID}
-            value={card.value}
-            isCrit={card.isCrit}
+            card={card}
+            // cardID={card.cardID}
+            // value={card.value}
+            // isCrit={card.isCrit}
+            // isSelected={card.isSelected}
             colour={deck.toLowerCase()}
+            handleSelected={handleSelected}
           />
         ))}
       </>
@@ -50,6 +55,8 @@ export default function Deck({
           <Grid size={{ xs: 6, md: 6 }}>
             <DeckDraw
               deck={deck}
+              deckCards={deckCards}
+              isOathsworn={isOathsworn}
               handleShuffle={handleShuffle}
               cardsToDeal={cardsToDeal}
               updateCardsToDeal={updateCardsToDeal}

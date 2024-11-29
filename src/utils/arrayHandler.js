@@ -32,3 +32,4 @@ const newShoppingCartUpdateSpecific = shoppingCart.map((item) => {
   }
 });
 console.log(newShoppingCartUpdateSpecific);
+
