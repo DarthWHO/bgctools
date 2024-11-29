@@ -31,7 +31,7 @@ export default function DeckDraw({
 
   return (
     <Box>
-      <Grid container spacing={1}>
+      <Grid container spacing={0}>
         <Grid size={6}>
           <Stack
             direction="column"
@@ -41,7 +41,6 @@ export default function DeckDraw({
               alignItems: "center",
             }}
           >
-            {" "}
             <Button
               variant="contained"
               disabled={isRollDisabled}

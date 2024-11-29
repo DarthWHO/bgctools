@@ -69,7 +69,7 @@ export default function GameSummary({
       <CardContent>
         <Box>
           <Grid container>
-            <Grid size={6}>
+            <Grid size={{ xs: 3, md: 6 }}>
               <Box display="flex" justifyContent="flex-end">
                 <Stack direction="column" spacing={0} pr={0} pt={2}>
                   <Typography variant="h5" component="p">
@@ -84,7 +84,7 @@ export default function GameSummary({
                 </Stack>
               </Box>
             </Grid>
-            <Grid size={2}>
+            <Grid size={{ xs: 3, md: 2}}>
               <Stack direction="column" spacing={0} pl={3} pt={2}>
                 <Typography variant="h5" component="p">
                   {total}
@@ -97,7 +97,7 @@ export default function GameSummary({
                 </Typography>
               </Stack>
             </Grid>
-            <Grid size={4}>
+            <Grid size={{ xs: 6, md: 4 }}>
               <Box display="flex" justifyContent="flex-end">
                 <Stack direction="column">
                   <Button

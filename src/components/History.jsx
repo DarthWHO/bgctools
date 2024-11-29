@@ -29,7 +29,7 @@ export default function History({history}) {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: 450 }}
+      sx={{ width: 300 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}

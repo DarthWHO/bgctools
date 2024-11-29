@@ -37,9 +37,13 @@ export default function Deck({
   };
 
   return (
-    <Card sx={{ minHeight: 600 }}>
+    <Card sx={{ minHeight: 0, backgroundColor: "rgb(230, 240, 250)" }}>
       <Grid sx={{ backgroundColor: deckBackground }}>
-        <Grid container spacing={1}>
+        <Grid
+          container
+          spacing={1}
+          sx={{ backgroundColor: "rgb(255, 255, 255)" }}
+        >
           <Grid size={{ xs: 6, md: 6 }}>
             <DeckSummary deck={deck} deckCards={deckCards} />
           </Grid>
@@ -54,13 +58,7 @@ export default function Deck({
           </Grid>
         </Grid>
 
-        <Grid
-          container
-          rowSpacing={1}
-          columnSpacing={2}
-          p={1}
-          sx={{ backgroundColor: "rgb(230, 240, 250)" }}
-        >
+        <Grid container rowSpacing={1} columnSpacing={2} p={1} pb={0}>
           <DisplayCards />
         </Grid>
       </Grid>
