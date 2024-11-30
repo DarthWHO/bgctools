@@ -19,7 +19,7 @@ export default function DeckCard({ card, colour, handleSelected }) {
         component="section"
         alignItems="center"
         justifyContent="center"
-        onClick={toggleSelected}
+        onClick={card.isRedrawn ? null : toggleSelected}
         sx={{
           cursor: "pointer",
           flexGrow: 1,
@@ -28,6 +28,7 @@ export default function DeckCard({ card, colour, handleSelected }) {
           borderRadius: 2,
           border: card.isSelected ? "1px solid" : "0px",
           borderColor: card.isSelected ? "green" : "grey",
+          transition: "boxShadow 1s",
           boxShadow: card.isSelected ? "2px 4px rgba(0, 0, 0, 0.3)" : "0px 0px",
           bgcolor: colour,
         }}

@@ -26,7 +26,7 @@ export default function GameSummary({
     return decks.reduce((total, deck) => {
       if (deck.isOathsworn === isOathsworn) {
         deck.deck.forEach((card) => {
-          if (card.isActive) {
+          if (card.isActive && card.isRedrawn === false) {
             total += card.value;
           }
         });
@@ -52,7 +52,12 @@ export default function GameSummary({
     return decks.reduce((total, deck) => {
       if (deck.isOathsworn === isOathsworn) {
         deck.deck.forEach((card) => {
-          if (card.isActive && card.isMiss) {
+          if (
+            card.isActive &&
+            card.isMiss &&
+            card.isRedrawn === false &&
+            card.isCritMissNegated === false
+          ) {
             total += 1;
           }
         });

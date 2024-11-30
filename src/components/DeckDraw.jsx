@@ -17,6 +17,8 @@ export default function DeckDraw({
   handleDeal,
 }) {
   const isRollDisabled = cardsToDeal[deck] ? false : true;
+  let localCrits = 0;
+  let localRedraws = 0;
 
   const handleRoll = (direction) => {
     if (
@@ -31,6 +33,16 @@ export default function DeckDraw({
       updateCardsToDeal(deck, cardsToDeal[deck] - 1);
     }
   };
+
+  const handleRedraw = () => {
+    updateCardsToDeal(deck, cardsToDeal[deck] + 1);
+    handleDeal()
+  }
+
+  // const handleCritDraw = () => {
+  //   console.log("here")
+    
+  // }
 
   const calculateCrits = () => {
     const totalCrits = deckCards.reduce((total, currentDeck) => {
@@ -47,12 +59,12 @@ export default function DeckDraw({
 
       return total;
     }, 0);
-
+    localCrits = totalCrits
     return totalCrits > 0;
   };
 
   const calculateIsSelected = () => {
-    const totalCrits = deckCards.reduce((total, currentDeck) => {
+    const totalSelected = deckCards.reduce((total, currentDeck) => {
       if (
         currentDeck.isOathsworn === isOathsworn &&
         currentDeck.deckColour === deck
@@ -66,8 +78,8 @@ export default function DeckDraw({
 
       return total;
     }, 0);
-
-    return totalCrits > 0;
+    localRedraws = totalSelected;
+    return totalSelected > 0;
   };
 
   const calculateAvailable = () => {
@@ -108,15 +120,17 @@ export default function DeckDraw({
               variant="outlined"
               disabled={!calculateIsSelected()}
               sx={{ width: "120px", m: 0 }}
+              onClick={handleRedraw}
             >
-              Re-Draw
+              Re-Draw {localRedraws === 0 ? "" : `(${localRedraws})`}
             </Button>
             <Button
               variant="outlined"
               disabled={!calculateCrits()}
               sx={{ width: "120px", m: 0 }}
+              onClick={() => handleDeal(deck, false, true)}
             >
-              Crits
+              Crits {localCrits === 0 ? "" : `(${localCrits})`}
             </Button>
             <Button
               onClick={() => handleShuffle(deck)}
