@@ -206,10 +206,10 @@ function MightDeckFunctions({ DECKS }) {
       `${isOathsworn ? "Oathsworn" : "Enemy"} ${deck} deck has been shuffled`
     );
   };
-  const updateCardsToDeal = (deck, value) => {
+  const updateCardsToDeal = (colour, value) => {
     setCardsToDeal((prevState) => ({
       ...prevState,
-      [deck]: value,
+      [colour]: value,
     }));
   };
 

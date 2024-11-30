@@ -5,13 +5,14 @@ import Typography from "@mui/material/Typography";
 const CARDHEIGHT = 70;
 const CIRCLESIZE = 64;
 
-export default function DeckCard({ card, colour, handleSelected }) {
+function DeckCard({ card, colour, excecuteFunction }) {
 
   const toggleSelected = () => {
-    handleSelected(card.cardID)
-  }
+    excecuteFunction("updateStatusMessage", "this is a test");
+    excecuteFunction("handleSelected", card.cardID);
+  };
 
-  const displayValue = card.isCrit ? "{ " + card.value + " }" : card.value
+  const displayValue = card.isCrit ? "{ " + card.value + " }" : card.value;
   return (
     <Grid size={6}>
       <Box
@@ -63,6 +64,6 @@ export default function DeckCard({ card, colour, handleSelected }) {
       </Box>
     </Grid>
   );
-
-
 }
+
+export default DeckCard;

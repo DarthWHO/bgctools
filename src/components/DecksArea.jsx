@@ -11,7 +11,7 @@ const DecksArea = ({ decks, isOathsworn, executeFunction, cardsToDeal }) => {
             decks={decks}
             isOathsworn={isOathsworn}
             executeFunction={executeFunction}
-            deck={colour}
+            colour={colour}
             cardsToDeal={cardsToDeal}
             deckCards={[
               decks.find(

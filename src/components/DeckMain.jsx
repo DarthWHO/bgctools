@@ -9,7 +9,8 @@ import DeckButtons from "./DeckButtons";
 function DeckMain({
   isOathsworn,
   executeFunction,
-  deck,
+  decks,
+  colour,
   deckCards,
   cardsToDeal,
 }) {
@@ -24,11 +25,11 @@ function DeckMain({
           sx={{ backgroundColor: "rgb(255, 255, 255)" }}
         >
           <Grid size={{ xs: 6, md: 6 }}>
-            <DeckSummary deck={deck} deckCards={deckCards} />
+            <DeckSummary deck={colour} deckCards={deckCards} />
           </Grid>
           <Grid size={{ xs: 6, md: 6 }}>
             <DeckButtons
-              deck={deck}
+              colour={colour}
               deckCards={deckCards}
               isOathsworn={isOathsworn}
               executeFunction={executeFunction}
@@ -39,7 +40,8 @@ function DeckMain({
 
         <Grid container rowSpacing={1} columnSpacing={2} p={1} pb={0}>
           <DeckCardsArea
-            deck={deck}
+            decks={decks}
+            colour={colour}
             isOathsworn={isOathsworn}
             executeFunction={executeFunction}
           />

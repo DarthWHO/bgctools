@@ -1,20 +1,36 @@
 import DeckCard from "./DeckCard";
 
-const DeckCardsArea = (deck, isOathsworn, executeFunction) => {
-  // const activeCards = executeFunction("getActiveCards", deck, isOathsworn).sort(
-  //   (a, b) => a.drawOrder - b.drawOrder
-  // );
+const DeckCardsArea = ({
+  colour,
+  decks,
+  isOathsworn,
+  executeFunction,
+}) => {
+
+  const getActiveCards = () => {
+    return decks
+      .filter(
+        (deck) =>
+          deck.deckColour === colour && deck.isOathsworn === isOathsworn
+      )
+      .flatMap((deck) => deck.deck)
+      .filter((card) => card.isActive);
+  };
+
+  const activeCards = getActiveCards().sort(
+    (a, b) => a.drawOrder - b.drawOrder
+  );
 
   return (
     <>
-      {/* {activeCards.map((card) => (
+      {activeCards.map((card) => (
         <DeckCard
           key={card.cardID}
           card={card}
-          colour={deck.toLowerCase()}
+          colour={colour.toLowerCase()}
           executeFunction={executeFunction}
         />
-      ))} */}
+      ))}
     </>
   );
 };

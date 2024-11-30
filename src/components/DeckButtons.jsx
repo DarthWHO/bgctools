@@ -8,33 +8,34 @@ import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 
 function DeckButtons({
-  deck,
+  colour,
   deckCards,
   isOathsworn,
   cardsToDeal,
   executeFunction,
 }) {
-  const isRollDisabled = cardsToDeal[deck] ? false : true;
+  console.log(colour)
+  const isRollDisabled = cardsToDeal[colour] ? false : true;
   let localCrits = 0;
   let localRedraws = 0;
 
   const handleRoll = (direction) => {
     if (
-      (cardsToDeal[deck] === 0 && direction === "down") ||
-      (cardsToDeal[deck] === 18 - calculateAvailable() && direction === "up")
+      (cardsToDeal[colour] === 0 && direction === "down") ||
+      (cardsToDeal[colour] === 18 - calculateAvailable() && direction === "up")
     ) {
       return;
     }
     if (direction === "up") {
-      executeFunction("updateCardsToDeal", deck, cardsToDeal[deck] + 1);
+      executeFunction("updateCardsToDeal", colour, cardsToDeal[colour] + 1);
     } else {
-      executeFunction("updateCardsToDeal", deck, cardsToDeal[deck] - 1);
+      executeFunction("updateCardsToDeal", colour, cardsToDeal[colour] - 1);
     }
   };
 
   const handleRedraw = () => {
-    executeFunction("updateCardsToDeal", deck, cardsToDeal[deck] + 1);
-    executeFunction("handleDeal", deck);
+    executeFunction("updateCardsToDeal", colour, cardsToDeal[colour] + 1);
+    executeFunction("handleDeal", colour);
   };
 
   const handleCritDraw = () => {
@@ -45,7 +46,7 @@ function DeckButtons({
     const totalCrits = deckCards.reduce((total, currentDeck) => {
       if (
         currentDeck.isOathsworn === isOathsworn &&
-        currentDeck.deckColour === deck
+        currentDeck.deckColour === colour
       ) {
         currentDeck.deck.forEach((card) => {
           if (card.isActive && card.isCrit) {
@@ -64,7 +65,7 @@ function DeckButtons({
     const totalSelected = deckCards.reduce((total, currentDeck) => {
       if (
         currentDeck.isOathsworn === isOathsworn &&
-        currentDeck.deckColour === deck
+        currentDeck.deckColour === colour
       ) {
         currentDeck.deck.forEach((card) => {
           if (card.isActive && card.isSelected) {
@@ -108,7 +109,7 @@ function DeckButtons({
               variant="contained"
               disabled={isRollDisabled}
               sx={{ width: "120px", m: 0 }}
-              onClick={() => executeFunction("handleDeal", deck)}
+              onClick={() => executeFunction("handleDeal", colour)}
             >
               Draw
             </Button>
@@ -129,7 +130,7 @@ function DeckButtons({
               Crits {localCrits === 0 ? "" : `(${localCrits})`}
             </Button>
             <Button
-              onClick={() => executeFunction("handleShuffle", deck)}
+              onClick={() => executeFunction("handleShuffle", colour)}
               variant="outlined"
               sx={{ width: "120px", m: 0 }}
             >
@@ -155,7 +156,7 @@ function DeckButtons({
               <ArrowDropUpIcon sx={{ fontSize: 50 }} />
             </IconButton>
             <Typography variant="h4" component="h4" sx={{ m: 0, p: 0 }}>
-              {cardsToDeal[deck]}
+              {cardsToDeal[colour]}
             </Typography>
             <IconButton
               aria-label="down"
