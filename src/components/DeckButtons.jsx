@@ -7,14 +7,12 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 
-export default function DeckDraw({
+function DeckButtons({
   deck,
   deckCards,
   isOathsworn,
-  handleShuffle,
   cardsToDeal,
-  updateCardsToDeal,
-  handleDeal,
+  executeFunction,
 }) {
   const isRollDisabled = cardsToDeal[deck] ? false : true;
   let localCrits = 0;
@@ -28,21 +26,20 @@ export default function DeckDraw({
       return;
     }
     if (direction === "up") {
-      updateCardsToDeal(deck, cardsToDeal[deck] + 1);
+      executeFunction("updateCardsToDeal", deck, cardsToDeal[deck] + 1);
     } else {
-      updateCardsToDeal(deck, cardsToDeal[deck] - 1);
+      executeFunction("updateCardsToDeal", deck, cardsToDeal[deck] - 1);
     }
   };
 
   const handleRedraw = () => {
-    updateCardsToDeal(deck, cardsToDeal[deck] + 1);
-    handleDeal()
-  }
+    executeFunction("updateCardsToDeal", deck, cardsToDeal[deck] + 1);
+    executeFunction("handleDeal", deck);
+  };
 
-  // const handleCritDraw = () => {
-  //   console.log("here")
-    
-  // }
+  const handleCritDraw = () => {
+    console.log("here");
+  };
 
   const calculateCrits = () => {
     const totalCrits = deckCards.reduce((total, currentDeck) => {
@@ -59,7 +56,7 @@ export default function DeckDraw({
 
       return total;
     }, 0);
-    localCrits = totalCrits
+    localCrits = totalCrits;
     return totalCrits > 0;
   };
 
@@ -111,12 +108,11 @@ export default function DeckDraw({
               variant="contained"
               disabled={isRollDisabled}
               sx={{ width: "120px", m: 0 }}
-              onClick={() => handleDeal(deck)}
+              onClick={() => executeFunction("handleDeal", deck)}
             >
               Draw
             </Button>
             <Button
-              // onClick={handleStuff}
               variant="outlined"
               disabled={!calculateIsSelected()}
               sx={{ width: "120px", m: 0 }}
@@ -128,12 +124,12 @@ export default function DeckDraw({
               variant="outlined"
               disabled={!calculateCrits()}
               sx={{ width: "120px", m: 0 }}
-              onClick={() => handleDeal(deck, false, true)}
+              // onClick={() => handleDeal(deck, false, true)}
             >
               Crits {localCrits === 0 ? "" : `(${localCrits})`}
             </Button>
             <Button
-              onClick={() => handleShuffle(deck)}
+              onClick={() => executeFunction("handleShuffle", deck)}
               variant="outlined"
               sx={{ width: "120px", m: 0 }}
             >
@@ -175,3 +171,5 @@ export default function DeckDraw({
     </Box>
   );
 }
+
+export default DeckButtons

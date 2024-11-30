@@ -1,4 +1,4 @@
-import DeckMain from "./DeckMain";
+import MightDeckFunctions from "./MightDeckFunctions";
 
 const DECKDETAILS = [
   {
@@ -2075,6 +2075,6 @@ const DECKDETAILS = [
   },
 ];
 
-export default function DeckDetails() {
-  return <DeckMain DECKS={DECKDETAILS} />;
+export default function MightDeckData() {
+  return <MightDeckFunctions DECKS={DECKDETAILS} />;
 }

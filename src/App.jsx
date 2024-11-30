@@ -5,7 +5,7 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import DeckDetails from "./components/DeckDetails";
+import MightDeckData from "./components/MightDeckData";
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
     <React.Fragment>
       <CssBaseline />
       <Navbar />
-      <DeckDetails />
+      <MightDeckData />
     </React.Fragment>
   );
 }

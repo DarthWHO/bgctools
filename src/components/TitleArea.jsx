@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid2";
 import History from "./History";
 import Instructions from "./Instructions";
 
-export default function Title({history, isOathsworn}) {
+function TitleArea({ history, isOathsworn }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={3} justifyContent="center">
@@ -29,3 +29,5 @@ export default function Title({history, isOathsworn}) {
     </Box>
   );
 }
+
+export default TitleArea;

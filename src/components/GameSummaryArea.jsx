@@ -7,13 +7,11 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-export default function GameSummary({
+function GameSummaryArea({
   decks,
-  handleSwitchDeck,
-  handleEndDraw,
-  handleDeal,
+  isOathsworn,
+  executeFunction,
   cardsToDeal,
-  isOathsworn
 }) {
   const cardTotal =
     cardsToDeal["White"] +
@@ -90,7 +88,7 @@ export default function GameSummary({
                 </Stack>
               </Box>
             </Grid>
-            <Grid size={{ xs: 3, md: 2}}>
+            <Grid size={{ xs: 3, md: 2 }}>
               <Stack direction="column" spacing={0} pl={3} pt={2}>
                 <Typography variant="h5" component="p">
                   {total}
@@ -110,7 +108,7 @@ export default function GameSummary({
                     variant="contained"
                     disabled={isRollDisabled}
                     sx={{ width: "170px", m: 0 }}
-                    onClick={() => handleDeal("all")}
+                    onClick={() => executeFunction("handleDeal", "all")}
                   >
                     Draw All
                   </Button>
@@ -118,7 +116,7 @@ export default function GameSummary({
                     variant="outlined"
                     disabled={false}
                     sx={{ width: "170px", m: 0 }}
-                    onClick={handleSwitchDeck}
+                    onClick={() => executeFunction("handleSwitchDeck")}
                   >
                     Switch
                   </Button>
@@ -126,7 +124,7 @@ export default function GameSummary({
                     variant="outlined"
                     disabled={false}
                     sx={{ width: "170px", m: 0 }}
-                    onClick={handleEndDraw}
+                    onClick={() => executeFunction("handleEndDraw")}
                   >
                     End Draw
                   </Button>
@@ -143,3 +141,5 @@ export default function GameSummary({
     </Card>
   );
 }
+
+export default GameSummaryArea;
