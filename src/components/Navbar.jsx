@@ -18,7 +18,6 @@ function Navbar() {
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-    console.log(anchorElNav)
   };
 
   const handleCloseNavMenu = () => {

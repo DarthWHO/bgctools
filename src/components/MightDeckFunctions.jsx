@@ -137,7 +137,7 @@ function MightDeckFunctions({ DECKS }) {
   };
 
   const getActiveCards = (deckColour, isOathsworn) => {
-    console.log("here")
+    console.log("here");
     return decks
       .filter(
         (deck) =>
@@ -236,7 +236,13 @@ function MightDeckFunctions({ DECKS }) {
 
   return (
     <>
-      <Button onClick={() => handleDebug("White", "owhite1")}>Debug</Button>
+      <Button
+        sx={{ display: "none" }}
+        // sx={{ display: "block" }}
+        onClick={() => handleDebug("White", "owhite1")}
+      >
+        Debug
+      </Button>
       <MightDeckMain
         historyMessages={historyMessages}
         decks={decks}

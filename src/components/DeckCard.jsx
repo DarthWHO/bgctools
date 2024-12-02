@@ -5,11 +5,11 @@ import Typography from "@mui/material/Typography";
 const CARDHEIGHT = 70;
 const CIRCLESIZE = 64;
 
-function DeckCard({ card, colour, excecuteFunction }) {
+function DeckCard({ card, colour, executeFunction }) {
 
   const toggleSelected = () => {
-    excecuteFunction("updateStatusMessage", "this is a test");
-    excecuteFunction("handleSelected", card.cardID);
+    // executeFunction("updateStatusMessage", "this is a test");
+    executeFunction("handleSelected", card.cardID);
   };
 
   const displayValue = card.isCrit ? "{ " + card.value + " }" : card.value;

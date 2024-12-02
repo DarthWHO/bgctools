@@ -14,18 +14,21 @@ function DeckButtons({
   cardsToDeal,
   executeFunction,
 }) {
-  console.log(colour)
   const isRollDisabled = cardsToDeal[colour] ? false : true;
   let localCrits = 0;
   let localRedraws = 0;
 
-  const handleRoll = (direction) => {
+  const handleDirectionButtons = (direction) => {
     if (
       (cardsToDeal[colour] === 0 && direction === "down") ||
       (cardsToDeal[colour] === 18 - calculateAvailable() && direction === "up")
     ) {
       return;
     }
+    updateCardsToDraw(direction);
+  };
+
+  const updateCardsToDraw = (direction) => {
     if (direction === "up") {
       executeFunction("updateCardsToDeal", colour, cardsToDeal[colour] + 1);
     } else {
@@ -33,14 +36,18 @@ function DeckButtons({
     }
   };
 
-  const handleRedraw = () => {
-    executeFunction("updateCardsToDeal", colour, cardsToDeal[colour] + 1);
-    executeFunction("handleDeal", colour);
-  };
+  // const handleReDrawCards = () => {
+  //   for (let index = 0; index < localRedraws; index++) {
+  //     updateCardsToDraw("up");
+  //   }
+  // };
 
-  const handleCritDraw = () => {
-    console.log("here");
-  };
+  // const handleCritDraw = () => {
+  //   console.log("here");
+  //   for (let index = 0; index < localCrits; index++) {
+  //     updateCardsToDraw("up");
+  //   }
+  // };
 
   const calculateCrits = () => {
     const totalCrits = deckCards.reduce((total, currentDeck) => {
@@ -49,7 +56,7 @@ function DeckButtons({
         currentDeck.deckColour === colour
       ) {
         currentDeck.deck.forEach((card) => {
-          if (card.isActive && card.isCrit) {
+          if (card.isActive && card.isSelected && card.isCrit) {
             total += 1;
           }
         });
@@ -57,7 +64,7 @@ function DeckButtons({
 
       return total;
     }, 0);
-    localCrits = totalCrits;
+    localCrits = totalCrits
     return totalCrits > 0;
   };
 
@@ -68,7 +75,7 @@ function DeckButtons({
         currentDeck.deckColour === colour
       ) {
         currentDeck.deck.forEach((card) => {
-          if (card.isActive && card.isSelected) {
+          if (card.isActive && card.isSelected && !card.isCrit) {
             total += 1;
           }
         });
@@ -117,7 +124,7 @@ function DeckButtons({
               variant="outlined"
               disabled={!calculateIsSelected()}
               sx={{ width: "120px", m: 0 }}
-              onClick={handleRedraw}
+              onClick={() => executeFunction("handleDeal", colour, true, false)}
             >
               Re-Draw {localRedraws === 0 ? "" : `(${localRedraws})`}
             </Button>
@@ -125,7 +132,7 @@ function DeckButtons({
               variant="outlined"
               disabled={!calculateCrits()}
               sx={{ width: "120px", m: 0 }}
-              // onClick={() => handleDeal(deck, false, true)}
+              onClick={() => executeFunction("handleDeal", colour, true, true)}
             >
               Crits {localCrits === 0 ? "" : `(${localCrits})`}
             </Button>
@@ -150,7 +157,7 @@ function DeckButtons({
             <IconButton
               aria-label="up"
               size="small"
-              onClick={() => handleRoll("up")}
+              onClick={() => handleDirectionButtons("up")}
               sx={{ m: 0, p: 0 }}
             >
               <ArrowDropUpIcon sx={{ fontSize: 50 }} />
@@ -161,7 +168,7 @@ function DeckButtons({
             <IconButton
               aria-label="down"
               size="small"
-              onClick={() => handleRoll("down")}
+              onClick={() => handleDirectionButtons("down")}
               sx={{ m: 0, p: 0 }}
             >
               <ArrowDropDownIcon sx={{ fontSize: 50 }} />
@@ -173,4 +180,4 @@ function DeckButtons({
   );
 }
 
-export default DeckButtons
+export default DeckButtons;
